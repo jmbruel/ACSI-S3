@@ -1,0 +1,373 @@
+:title: Etude de cas 2013-2014
+:doctype: article
+:description: Cours de DUT Informatique
+:keywords: ACSI Merise UML Analyse Conception Systèmes d'Information
+:Author: Jean-Michel Bruel
+:Author Initials: JMB
+:Email: jean-michel.bruel@univ-tlse2.fr
+:Revision: 1.0
+:localdate: {sys: date +%d/%m/%Y}
+:Date: {localdate}
+:startdate: 29/09/2012
+:slideshowlocation: [IUT Blagnac]
+:slidebackground: asciidocslidy
+:copyright: {date={localdate}}, {slideshowlocation} *** {author} *** Powered by Asciidoc and W3C Slidy &#169; 
+:incremental!:
+:indir: dessins
+:images: /Users/bruel/dev/images
+:graphviz: graphviz
+
+//----------- définitions --------------
+:umlsite: http://webetud.iut-blagnac.fr/file.php/35/SupportCours/5-UML-1.pdf
+:oclsite: http://webetud.iut-blagnac.fr/mod/resource/view.php?id=9621
+:pre: PreReq
+:objtd: ObjTD
+:objgen: ObjGen
+:lien: Lien
+
+//----------- dck.js --------------
+// swiss, neon beamer
+:deckjs_theme: web-2.0 
+
+//fade, horizontal-slide, vertical-slide
+:deckjs_transition: horizontal-slide
+
+//:pygments:
+//:pygments_style: native
+:scrollable:
+//:linkcss:
+
+:acsi: http://webetud.iut-blagnac.fr/course/view.php?id=147[ACSI]
+:redmine: http://www.redmine.org/[Redmine]
+
+ifndef::uk[] 
+
+= ACSI : {title} : {groupe}
+
+endif::uk[] 
+
+ifdef::uk[] 
+
+= ACSI: Case Study 2013/2014: {groupe}
+
+endif::uk[] 
+
+//----------------------------------------------------- Correction -------------------------
+ifdef::correction[] 
+ifndef::uk[] 
+
+[IMPORTANT]
+.Version corrigée
+====
+Cette version comporte des indications pour les
+réponses aux exercices.
+====
+endif::uk[] 
+ifdef::uk[] 
+
+[IMPORTANT]
+.Solution version
+====
+This version is the one with solutions.
+====
+endif::uk[] 
+endif::correction[] 
+
+//----------------------------------------------------- fin Correction -------------------------
+
+ifndef::uk[] 
+
+[WARNING]
+====
+Cette étude de cas donne lieu à une évaluation. Appliquez-vous!
+====
+endif::uk[] 
+
+
+ifdef::uk[] 
+
+[WARNING]
+====
+This case study is going to be evaluated!
+If you have trouble with the English version, you can have a look at the link:groupe1-fr.html[French version], but
+the project should be delivered in English (you've volunteered to be in the English group!).
+====
+
+endif::uk[] 
+
+
+//------------------------------------- saut de page ------------------------------
+<<<
+
+ifndef::uk[] 
+== Contexte
+
+=== Organisation
+
+Ce projet d'{acsi} est prévu pour durer 4 semaines, à raison de 3h par semaine
+de séances en TD avec machines.
+
+Le déroulement des 4 semaines est approximativement le suivant :
+
+//dot, neato, twopi, circo, fdp
+[graphviz,'{graphviz}/test.dot.png',dot]
+.Déroulement du projet sur 4 semaines 
+---------------------------------------------------------------------
+include::{graphviz}/test.dot[]
+---------------------------------------------------------------------
+endif::uk[] 
+
+ifdef::uk[] 
+== Context
+
+=== Organization
+
+This {acsi} project is planned to last 4 weeks, with 3h per week
+of practical work (with computer).
+
+The 4 weeks will be devided according the following approximative planning:
+
+//dot, neato, twopi, circo, fdp
+[graphviz,'{graphviz}/test.dot.png',dot]
+.4 weeks planning 
+---------------------------------------------------------------------
+include::{graphviz}/test.dot[]
+---------------------------------------------------------------------
+endif::uk[] 
+
+ifndef::uk[] 
+=== Environnement logiciel
+
+Identification::
+Chaque groupe de 3 ou 4 étudiants se verra affecté un numéro du type +32+ pour "2ème groupe du Groupe 3 de TD".
+
+Gestion de projet::
+Chaque groupe aura accès à un gestionnaire de projet {Redmine} : http://algec.iut-blagnac.fr/redmine/projects/acsi-[projet]-xx où 
+- +[projet]+ est le nom du projet (prodif pour le groupe 2 par exemple) et +xx+ est à remplacer par le numéro du groupe qui vous
+sera affacté en TD.
+Cet outil vous permettra de gérer vos actions et de me poser des questions.
+
+Gestion de version::
+Chaque groupe est libre d'utiliser un dépôt qui lui est propre, mais il devra
+être accessible par l'enseignant. Pour ceux qui n'ont pas de dépôt l'enseignant
+vous en fournira un. En faire la demande via Redmine.
+
+Outils de modélisation::
+Les outils de modélisation sont libres, mais devront être utilisés (plantuml, starUML, etc.).
+Pour chaque étape demandées il vous faudra remettre vos diagrammes en respectant une nomenclature
+bien précise.
+
+[WARNING]
+====
+Le respect de la nomenclature des fichiers à remettre est indispensable. Faites des tests et
+vérifiez. Ces fichiers seront récupérés par des scripts...
+====
+
+=== Divers
+
+Quelques règles et informations concernant le sujet :
+
+- Chaque groupe de TD de 2ème année traite un sujet différent.
+- Dans un même groupe, vous pouvez vous aider entre équipes!
+- Les commentaires sur vos modèles intermédiaires seront donnés à chaque groupe au fur et à mesure. 
+
+== Exposé du CCU pour le projet du {groupe}
+
+endif::uk[] 
+
+ifdef::uk[]
+=== Software environment
+
+Identification::
+Each group of 3 or 4 will have a number (e.g., +32+ for "2nd group of TD Groupe 3").
+
+Project management::
+Each group will have access to a project management tool, {Redmine} :
+
+........
+http://algec2.iut-blagnac.fr/redmine/projects/acsi-s3-cascade-xx 
+........
+
+where +xx+ will be replaced by the group number.
+This tool will allow you to manage your actions and to ask questions to your client.
+
+Versioning system::
+Each group will have to use a CVS of their choice such as +git+ or +svn+ (the only constraint is that I have access to it). 
+For the group who do not have one, we will provide one (ask for it through {Redmine}).
+
+Modeling tools::
+You are free to use the modeling tool of your choice, but you have to use them (+plantuml+, +starUML+, etc.).
+For each step you will be asked to provide your diagrams through files with a precise naming.
+
+[WARNING]
+====
+The respect of the files naming will be very strict. Do some tests and
+check. You files will be accessed through automated scripts...
+====
+
+=== Divers
+
+Some common rules and informations:
+
+- Each TD group has a different subject.
+- In each TD group, you can discuss and help each others!
+- I will provide comments on your intermediary models on the fly. 
+
+== Here is the specification of the subject for {groupe}
+
+endif::uk[] 
+
+include::reqs-{groupe}.txt[]
+
+//------------------------------------- saut de page ------------------------------
+<<<
+
+== Planning
+
+ifndef::uk[] 
+include::planning.txt[]
+endif::uk[] 
+ifdef::uk[] 
+include::planning-uk.txt[]
+endif::uk[] 
+
+//------------------------------------- saut de page ------------------------------
+<<<
+
+ifndef::uk[] 
+
+== Dossier final à remettre
+
+Voici un exemple de structure du Dossier de Conception à remettre :
+
+...........
+include::template-dossier.txt[]
+...........
+
+[NOTE]
+====
+Vous pouvez télécharger ce template link:template-dossier.txt[ici].
+====
+
+== Evaluation et critères
+
+Rappelons les conseils habituels distillés tout au long de l'année :
+
+- clarté des diagrammes et des choix de conception ou d'interprétation réalisés
+- cohérence entre les diagrammes
+
+L'évaluation portera principalement sur les critères suivants :
+
+[[Criteres]]
+.Critères
+[align="center",width="90%",cols="6,^4,^2",options="header"]
+|=========================================================
+| Critère											| Type de critère 			| Poids approximatif	
+| Sommaire											| Présence					| 5%					
+| Introduction										| Présence					| 5%
+| Diagramme des UC									| Correction, pertinence	| 8%
+| Diagramme des Classes Métier et Contrôleur		| Correction, pertinence	| 8%
+| SNI												| Correction, pertinence	| 8%
+| Dessin de BD complexe et Maquettes utilisateur	| Correction, pertinence	| 8%
+| Diagramme de Séquence Système (2 UC au moins)		| Correction, pertinence	| 7%
+| Diagramme de Séquence « normal » (au moins 1 UC)	| Correction, pertinence	| 8%
+| Diagramme Classes Participantes  (au moins 1 UC)	| Correction, pertinence	| 5%
+| Cohérence inter-modèles (SNI/UC/DC, UC/DSS/DS/DCP)| Correction, pertinence	| 8%
+| Respect des nomenclatures, dépots SVN, Wiki, etc~ | Correction, pertinence	| 10%
+| Code exécutable									| Correction, documentation | 10%
+| Clarté – Présentation du Dossier					| subjectif :-)				| 10%
+|======================
+
+
+[TIP]
+====
+Vous pouvez insérer une section "auto-évaluation" dans votre rapport, qui reprend cette grille et
+vous permet de vous auto-évaluer. 
+====
+
+endif::uk[] 
+ifdef::uk[] 
+
+== Final report
+
+You'll have to provide a final report which content should be as follow:
+
+...........
+include::template-dossier-uk.txt[]
+...........
+
+[NOTE]
+====
+You can download template link:template-dossier-uk.txt[here].
+====
+
+== Evaluation and criteria
+
+Let us recall the advices we have already mentionned during the year:
+
+- readability of the diagrams and clear statements of the design choices
+- consistency between diagrams
+
+The evaluation will mainly foccus on the following criteria (in French, sorry):
+
+[[Criteres]]
+.Criteria
+[align="center",width="90%",cols="6,^4,^2",options="header"]
+|=========================================================
+| Critère											| Type de critère 			| Poids approximatif	
+| Sommaire											| Présence					| 5%					
+| Introduction										| Présence					| 5%
+| Diagramme des UC									| Correction, pertinence	| 8%
+| Diagramme des Classes Métier et Contrôleur		| Correction, pertinence	| 8%
+| SNI												| Correction, pertinence	| 8%
+| Dessin de BD complexe et Maquettes utilisateur	| Correction, pertinence	| 8%
+| Diagramme de Séquence Système (2 UC au moins)		| Correction, pertinence	| 7%
+| Diagramme de Séquence « normal » (au moins 1 UC)	| Correction, pertinence	| 8%
+| Diagramme Classes Participantes  (au moins 1 UC)	| Correction, pertinence	| 5%
+| Cohérence inter-modèles (SNI/UC/DC, UC/DSS/DS/DCP)| Correction, pertinence	| 8%
+| Respect des nomenclatures, dépots SVN, Wiki, etc~ | Correction, pertinence	| 10%
+| Code exécutable									| Correction, documentation | 10%
+| Clarté – Présentation du Dossier					| subjectif :-)				| 10%
+|======================
+
+
+[TIP]
+====
+You can add a "self-evaluation" section in your report, using the provided list. 
+====
+
+endif::uk[] 
+
+//----------------------------------------------------- Correction -------------------------
+ifdef::correction[] 
+
+
+include::correction.txt[]
+
+
+endif::correction[] 
+
+//----------------------------------------------------- fin Correction -------------------------
+
+
+[[Appendix]]
+== Annexes
+
+=== Acronymes
+
+DC:: **D**iagramme de **C**lasse
+DS:: **D**iagramme de **S**équence
+DSS:: **D**iagramme de **S**équence **S**ystème
+MVC:: _**M**odel **V**iew **C**ontroler_
+SNI:: **S**chéma de **N**avigation d'**I**nterface
+UC:: Diagramme des **C**as **U**tilisateurs
+
+
+//----------------------------------------------------- About -------------------------
+**********************************************************************
+Document généré par mailto:{email}[{author}] via {asciidoc} (version +8.6.8+) de 'Stuart Rackham'.
+Pour l'instant ce document est libre d'utilisation et géré par la 'Licence Creative Commons'. 
+image:{images}/icons/88x31.png["Licence Creative 
+Commons",style="border-width:0",link="http://creativecommons.org/licenses/by-sa/3.0/"]
+http://creativecommons.org/licenses/by-sa/3.0/[licence Creative Commons Paternité - Partage à l&#39;Identique 3.0 non transposé].
+**********************************************************************
